@@ -1,4 +1,4 @@
-# Mapa de Calor 
+# Mapa de Calor 🗺️🌡️
 
 ## Visão Geral
 
@@ -62,3 +62,6 @@ Isso deve iniciar a aplicação e abrir um navegador para você visualizar a int
 - **JSON de Entrada**: O arquivo JSON deve seguir a estrutura esperada, com a propriedade `deepstream-msg` contendo dados no formato `"TRACKING-ID|X-MIN|Y-MIN|X-MAX|Y-MAX|OBJECT|REGION"`.
 - **Imagem de Entrada**: Deve ser um arquivo de imagem válido (JPG, PNG, etc.) que será utilizado como base para o mapa de calor.
 
+## Acesso Online
+
+Você pode acessar a aplicação online [aqui](https://heatmap-hazel.vercel.app/).
