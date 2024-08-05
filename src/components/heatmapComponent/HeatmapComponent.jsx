@@ -6,6 +6,7 @@ const HeatmapComponent = ({ imageUrl, data, objectOfInterest }) => {
   const imageRef = useRef(null);
   const heatmapContainerRef = useRef(null);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     if (heatmapContainerRef.current && !heatmapInstance) {
@@ -39,12 +40,20 @@ const HeatmapComponent = ({ imageUrl, data, objectOfInterest }) => {
   }, [heatmapInstance, data, objectOfInterest]);
 
   const downloadImage = async () => {
-    html2canvas(heatmapContainerRef.current, { useCORS: true }).then(canvas => {
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'heatmap.png';
-      link.click();
-    });
+    if (imageLoaded) {
+      html2canvas(heatmapContainerRef.current, { useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'heatmap.png';
+        link.click();
+      });
+    } else {
+      console.log("Imagem não carregada ainda.");
+    }
+  };
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
   };
 
   return (
@@ -54,7 +63,8 @@ const HeatmapComponent = ({ imageUrl, data, objectOfInterest }) => {
           ref={imageRef}
           src={imageUrl}
           alt="Imagem Base"
-          className="w-full h-full absolute top-0 left-0 object-cover" 
+          className="w-full h-full absolute top-0 left-0 object-cover"
+          onLoad={handleImageLoad}
         />
       </div>
       <button className="mt-4 px-6 w-full py-2 bg-blue-700 text-white font-bold rounded hover:bg-blue-800 transition" onClick={downloadImage}>Download Heatmap</button>
