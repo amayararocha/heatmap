@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Mapa de Calor 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Visão Geral
 
-## Available Scripts
+Este projeto é uma aplicação web que permite gerar um mapa de calor dinâmico sobre uma imagem com base em dados JSON fornecidos. Utiliza a biblioteca `heatmap.js` para a criação do mapa de calor e `html2canvas` para capturar e baixar a imagem com o mapa de calor sobreposto.
 
-In the project directory, you can run:
+## Componentes Principais 
 
-### `npm start`
+### HeatmapComponent
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Descrição**: Componente responsável por renderizar o mapa de calor sobre a imagem fornecida.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Props**:
+- `imageUrl` (string): URL da imagem na qual o mapa de calor será sobreposto.
+- `data` (array): Dados de entrada para o mapa de calor, contendo informações sobre os pontos de interesse.
+- `objectOfInterest` (string): Tipo de objeto de interesse para filtrar os dados a serem exibidos no mapa de calor.
 
-### `npm test`
+**Funcionalidades**:
+- **Inicialização do Heatmap**: Cria uma instância do heatmap quando o componente é montado.
+- **Atualização dos Dados**: Filtra os dados para o objeto de interesse e atualiza o mapa de calor com os pontos e valores correspondentes.
+- **Download da Imagem**: Captura a área do mapa de calor e a imagem base usando `html2canvas` e permite o download da imagem resultante.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### MainContent
 
-### `npm run build`
+**Descrição**: Componente principal da aplicação que lida com o upload de arquivos JSON e imagens, bem como a seleção do objeto de interesse.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Estado**:
+- `image` (string): URL da imagem carregada.
+- `data` (array): Dados carregados do arquivo JSON.
+- `objectOfInterest` (string): Tipo de objeto selecionado pelo usuário.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Funcionalidades**:
+- **Upload de JSON**: Lê e formata o arquivo JSON para extrair os dados necessários para o mapa de calor.
+- **Upload de Imagem**: Carrega a imagem a ser usada no mapa de calor.
+- **Seleção do Objeto de Interesse**: Permite ao usuário escolher qual objeto será destacado no mapa de calor.
+- **Renderização Condicional**: Exibe o `HeatmapComponent` somente quando a imagem e os dados estão disponíveis.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Passos para Inicialização
 
-### `npm run eject`
+1. **Clone o Repositório**:
+   Se você ainda não tiver o repositório localmente, clone-o usando o seguinte comando:
+   ```bash
+   git clone https://github.com/amayararocha/heatmap.git
+   cd heatmap
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Instalação de Dependências**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instale as dependências necessárias com o comando:
+```bash
+npm install
+```
+3. **Execução da Aplicação**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Inicie o servidor de desenvolvimento com o comando:
+```bash
+npm start
+```
+Isso deve iniciar a aplicação e abrir um navegador para você visualizar a interface web.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Requisitos
 
-## Learn More
+- **JSON de Entrada**: O arquivo JSON deve seguir a estrutura esperada, com a propriedade `deepstream-msg` contendo dados no formato `"TRACKING-ID|X-MIN|Y-MIN|X-MAX|Y-MAX|OBJECT|REGION"`.
+- **Imagem de Entrada**: Deve ser um arquivo de imagem válido (JPG, PNG, etc.) que será utilizado como base para o mapa de calor.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
