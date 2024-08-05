@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HeatmapComponent from '../heatmapComponent/HeatmapComponent';
+import { toastAlerta } from '../utils/toastAlert'; 
 
 const MainContent = () => {
   const [image, setImage] = useState(null);
@@ -28,9 +29,10 @@ const MainContent = () => {
           });
         });
         setData(formattedData);
+        toastAlerta('JSON carregado com sucesso!', 'sucesso');
       } catch (error) {
         console.error("Error parsing JSON:", error);
-        alert("Erro ao ler o arquivo JSON. Verifique o formato do arquivo.");
+        toastAlerta('Erro ao ler o arquivo JSON. Verifique o formato do arquivo.', 'erro');
       }
     };
 
@@ -45,6 +47,7 @@ const MainContent = () => {
 
     reader.onload = (e) => {
       setImage(e.target.result);
+      toastAlerta('Imagem carregada com sucesso!', 'sucesso');
     };
 
     if (file) {

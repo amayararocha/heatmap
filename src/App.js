@@ -1,4 +1,6 @@
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import MainContent from './components/mainContent/MainContent';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
@@ -6,6 +8,7 @@ import Footer from './components/footer/Footer';
 const App = () => {
   return (
         <div>
+          <ToastContainer />
           <Navbar/>
           <MainContent />
           <Footer/>
