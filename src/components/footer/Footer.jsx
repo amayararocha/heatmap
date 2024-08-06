@@ -5,6 +5,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
+    <>
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex flex-col items-center">
         <p className="text-lg font-semibold mb-2">Visualização de Heatmap</p>
@@ -20,6 +21,7 @@ function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
 

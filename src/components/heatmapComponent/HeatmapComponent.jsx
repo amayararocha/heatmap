@@ -57,6 +57,7 @@ const HeatmapComponent = ({ imageUrl, data, objectOfInterest }) => {
   };
 
   return (
+    <>
     <div>
       <div ref={heatmapContainerRef} className="relative w-[800px] h-[700px]">
         <img
@@ -69,6 +70,7 @@ const HeatmapComponent = ({ imageUrl, data, objectOfInterest }) => {
       </div>
       <button className="mt-4 px-6 w-full py-2 bg-blue-700 text-white font-bold rounded hover:bg-blue-800 transition" onClick={downloadImage}>Download Heatmap</button>
     </div>
+    </>
   );
 };
 

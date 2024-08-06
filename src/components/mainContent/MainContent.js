@@ -56,6 +56,7 @@ const MainContent = () => {
   };
 
   return (
+    <>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-32">
       <div className="max-w-5xl w-full bg-white p-6 rounded-lg shadow-md">
         <div className="mb-4">
@@ -114,6 +115,7 @@ const MainContent = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
