@@ -38,11 +38,11 @@ Este projeto é uma aplicação web que permite gerar um mapa de calor dinâmico
 ## Passos para Inicialização
 
 1. **Clone o Repositório**:
-   Se você ainda não tiver o repositório localmente, clone-o usando o seguinte comando:
-   ```bash
-   git clone https://github.com/amayararocha/heatmap.git
-   cd heatmap
-
+Se você ainda não tiver o repositório localmente, clone-o usando o seguinte comando:
+```bash
+git clone https://github.com/amayararocha/heatmap.git
+cd heatmap
+```
 2. **Instalação de Dependências**
 
 Instale as dependências necessárias com o comando:
