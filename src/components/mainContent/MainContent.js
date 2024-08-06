@@ -71,7 +71,7 @@ const MainContent = () => {
         <div className="max-w-5xl w-full bg-white p-6 rounded-lg shadow-md">
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-700">
-              Upload JSON
+              Upload do JSON
             </label>
             <div className="relative">
               <input
