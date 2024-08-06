@@ -89,7 +89,7 @@ const MainContent = () => {
               </label>
             </div>
             <label className="block mb-2 mt-4 text-sm font-medium text-gray-700">
-              Upload de Imagem
+              Upload da Imagem
             </label>
             <div className="relative">
               <input
